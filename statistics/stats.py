@@ -152,7 +152,7 @@ def compute_all_impacts(
     out.to_csv(output_file_path, index=False)
     return out
 
-lag = 4
+lag = 10
 tickers = pd.read_csv('statistics/data/input/tickers_cleaned.csv')['Ticker'].tolist()
 
 output_dir = f'statistics/data/output_lags{lag}'
