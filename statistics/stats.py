@@ -152,10 +152,10 @@ def compute_all_impacts(
     out.to_csv(output_file_path, index=False)
     return out
 
+lag = 4
+tickers = pd.read_csv('statistics/data/input/tickers_cleaned.csv')['Ticker'].tolist()
 
-tickers = pd.read_csv('files_creation/data/input/tickers_cleaned.csv')['Ticker'].tolist()
-
-output_dir = 'statistics/data/output_lags0'
+output_dir = f'statistics/data/output_lags{lag}'
 os.makedirs(output_dir, exist_ok=True)
 
 input_dir = 'files_creation/data/output_cleaned'
@@ -171,6 +171,6 @@ for ticker in tqdm(tickers, desc="Processing tickers"):
     else :
         print(f"\nComputing stats data for {ticker}...")
 
-    compute_all_impacts(input_file, output_file, ticker)
+    compute_all_impacts(input_file, output_file, ticker, lags=[lag])
 
 

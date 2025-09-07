@@ -91,4 +91,4 @@ for ticker in tqdm(tickers, desc="Processing tickers"):
 
 # Save tickers that were actually cleaned
 df_tickers_cleaned = pd.DataFrame(tickers_cleaned_list, columns=["Ticker"])
-df_tickers_cleaned.to_csv("files_creation/data/input/tickers_cleaned.csv", index=False)
+df_tickers_cleaned.to_csv("statistics/data/input/tickers_cleaned.csv", index=False)
